@@ -1,0 +1,47 @@
+<!-- list.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Job Management System</title>
+</head>
+<body>
+
+<div class="container">
+    <center>
+        <h1>Job List</h1>
+    </center>
+
+    <h2>Job List</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Post Id</th>
+            <th>Post Profile</th>
+            <th>Description</th>
+            <th>Experience</th>
+            <th>Tech Track</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="job : ${jobs}">
+            <td th:text="${job.jobId}"></td>
+            <td th:text="${job.yearOfExperience}"></td>
+            <td th:text="${job.designation}"></td>
+            <td th:text="${job.role}"></td>
+            <td th:text="${job.skills}"></td>
+            <td><a th:href="@{/jobs/edit/{id}(id=${job.jobId})}">Edit</a></td>
+            <td><a th:href="@{/jobs/delete/{id}(id=${job.jobId})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/jobs/add">Add JobPosts</a>
+</div>
+
+</body>
+</html>

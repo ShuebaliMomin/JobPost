@@ -1,0 +1,45 @@
+<!-- edit.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Edit JobPost</title>
+</head>
+<body>
+
+<div class="container">
+    <center>
+        <h1>Job Form</h1>
+    </center>
+
+    <h2>Edit JobPost</h2>
+
+    <!--    <form th:action="@{/jobs/edit/{id}(id=${postId})}" th:object="${job}" method="post">-->
+    <form th:action="@{/jobs/add}" th:object="${job}" method="post">
+        <input type="hidden" th:field="*{jobId}">
+
+        <label for="yearOfExperience">Year of Experience:</label>
+        <input type="number" id="yearOfExperience" name="yearOfExperience" th:field="*{yearOfExperience}" required>
+
+        <label for="designation">Designation:</label>
+        <input type="text" id="designation" name="designation" th:field="*{designation}" required>
+
+        <label for="role">Role:</label>
+        <input type="text" id="role" name="role" th:field="*{role}" required>
+
+        <label for="skills">Skills:</label>
+        <input type="text" id="skills" name="skills" th:field="*{skills}" required>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <br/>
+    <br/>
+    <a href="/jobs/view">Back to List</a>
+
+</div>
+
+</body>
+</html>
